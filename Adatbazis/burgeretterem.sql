@@ -63,7 +63,7 @@ INSERT INTO `desszert` (`dazon`, `dnev`, `dar`, `dleir`) VALUES
 (1, '-', 0, '-'),
 (2, 'Somlói galuska', 800, 'Kakaós-vaníliás piskóta tészta, mazsolával, vaníliakrémmel, házi készítésű tejszínhabbal.'),
 (3, 'Gesztenyepüré', 600, 'Friss gesztenyemassza, házi készítésű tejszínhabbal.'),
-(4, 'Gundel palcsina', 950, 'Diótöltelékes palacsinta, kakaóöntettel, házi készítésű tejszínhabbal.'),
+(4, 'Gundel palcsinta', 950, 'Diótöltelékes palacsinta, kakaóöntettel, házi készítésű tejszínhabbal.'),
 (5, 'Túrógombóc', 850, 'Gőzölt túrógombóc vanília öntettel.'),
 (6, 'Prifiterol', 1000, 'Forrázott tésztából készült mini fánkocskák csokis-, vaníliás öntettel.'),
 (7, 'Tiramisu', 1100, 'Kávés tejben áztatott babapiskóta, friss mascarpone-ból készült rumos-mandulás krémmel.');
