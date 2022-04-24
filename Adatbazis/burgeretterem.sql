@@ -300,8 +300,8 @@ CREATE TRIGGER `rendelestetelfrissitinsert` AFTER INSERT ON `tetel` FOR EACH ROW
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `urestermekstatus` BEFORE INSERT ON `tetel` FOR EACH ROW SET NEW.italstatus = IF(NEW.iazon = 0,2,1), 
- NEW.etelstatus = IF(NEW.bazon = 0 AND NEW.kazon = 0 AND NEW.dazon = 0,2,1)
+CREATE TRIGGER `urestermekstatus` BEFORE INSERT ON `tetel` FOR EACH ROW SET NEW.italstatus = IF(NEW.iazon = 1,2,1), 
+ NEW.etelstatus = IF(NEW.bazon = 1 AND NEW.kazon = 1 AND NEW.dazon = 1,2,1)
 $$
 DELIMITER ;
 
