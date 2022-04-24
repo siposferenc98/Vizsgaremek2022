@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "03icZMF7kgIQbw5kyOrm67O4peOYvTeoSV4yuDBf4ZCb9wC4ugcLcPVZ2aHmqBsW1aDLHJ3Cw4rofxRydX8Qxw==",
+  "dgSpecHash": "KWUsHrwo5396KEgSzcmIMyHvamNK0axWUdUvfiD8Hg6PIqmkReRbve1gBB8bJWtSnYQ7i8x0Vrep5F53z7M5ag==",
   "success": true,
-  "projectFilePath": "C:\\Visual Studio Projects\\VizsgaremekAPI\\VizsgaremekAPI\\VizsgaremekAPI.csproj",
+  "projectFilePath": "C:\\Users\\Sipos\\Desktop\\Vizsgaremek\\Forraskod\\API\\VizsgaremekAPI\\VizsgaremekAPI\\VizsgaremekAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sipos\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Sipos\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
