@@ -13,9 +13,9 @@ namespace VizsgaremekAPI.Controllers
 
         // GET: /<Rendelesek>
         [HttpGet]
-        public IActionResult Get([FromHeader]string Auth)
+        public IActionResult Get([FromHeader]string auth)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 List<Rendele> DBContextrendelesek = new(_context.Rendeles);
                 DBContextrendelesek.ForEach(r => r.Tetels = _context.Tetels.Where(t => t.Razon == r.Razon).ToList());
@@ -36,9 +36,9 @@ namespace VizsgaremekAPI.Controllers
 
         // GET: /<Rendelesek>/Aktiv>
         [HttpGet("Aktiv")]
-        public IActionResult GetAktiv([FromHeader] string Auth)
+        public IActionResult GetAktiv([FromHeader] string auth)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 List<Rendele> DBContextrendelesek = new(_context.Rendeles.Where(x=>x.Italstatus < 4 && x.Etelstatus < 4));
                 DBContextrendelesek.ForEach(r => r.Tetels = _context.Tetels.Where(t => t.Razon == r.Razon).ToList());
@@ -58,9 +58,9 @@ namespace VizsgaremekAPI.Controllers
         }
 
         [HttpGet("Bevetel")]
-        public IActionResult GetBevetel([FromHeader] string Auth)
+        public IActionResult GetBevetel([FromHeader] string auth)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 List<Rendele> DBContextrendelesek = new(_context.Rendeles.Where(x=>x.Etelstatus > 3 && x.Italstatus > 3));
                 DBContextrendelesek.ForEach(r => r.Tetels = _context.Tetels.Where(t => t.Razon == r.Razon).ToList());
@@ -86,9 +86,9 @@ namespace VizsgaremekAPI.Controllers
 
         // POST /<Rendelesek>
         [HttpPost]
-        public IActionResult Post([FromHeader]string Auth, Rendele r)
+        public IActionResult Post([FromHeader]string auth, Rendele r)
         {
-            if(Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if(auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 _context.Rendeles.Add(r);
                 if (_context.SaveChanges() > 0)
@@ -101,9 +101,9 @@ namespace VizsgaremekAPI.Controllers
         }
         // PUT /<Rendelesek>
         [HttpPut]
-        public IActionResult Put([FromHeader]string Auth, Rendele r)
+        public IActionResult Put([FromHeader]string auth, Rendele r)
         {
-           if(Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+           if(auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 List<Tetel> rendeleshezTartozoTetelek = _context.Tetels.Where(x => x.Razon == r.Razon).ToList();
                 rendeleshezTartozoTetelek.ForEach(x =>
@@ -122,9 +122,9 @@ namespace VizsgaremekAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete([FromHeader] string Auth, int id)
+        public IActionResult Delete([FromHeader] string auth, int id)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 Rendele aktr = _context.Rendeles.Find(id);
                 _context.Rendeles.Remove(aktr);

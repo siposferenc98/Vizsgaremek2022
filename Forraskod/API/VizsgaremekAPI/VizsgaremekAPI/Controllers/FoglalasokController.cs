@@ -13,9 +13,9 @@ namespace VizsgaremekAPI.Controllers
 
         // GET: /<Foglalasok>
         [HttpGet]
-        public IActionResult Get([FromHeader]string Auth, [FromQuery] int? felh)
+        public IActionResult Get([FromHeader]string auth, [FromQuery] int? felh)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 if (felh is not null)
                 {
@@ -36,9 +36,9 @@ namespace VizsgaremekAPI.Controllers
 
         // GET: /<Foglalasok>/Aktiv
         [HttpGet("Aktiv")]
-        public IActionResult GetAktiv([FromHeader] string Auth)
+        public IActionResult GetAktiv([FromHeader] string auth)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 List<Foglala> maiFoglalasok = _context.Foglalas.Where(x => x.Foglalasido.Date == System.DateTime.Today.Date && x.Megjelent == false).ToList();
                 maiFoglalasok.ForEach(x => x.FelhasznaloNev = _context.Felhasznalos.First(f => f.Azon == x.Azon).Nev);
@@ -51,9 +51,9 @@ namespace VizsgaremekAPI.Controllers
 
         // POST /<Foglalasok>
         [HttpPost]
-        public IActionResult Post([FromHeader]string Auth, Foglala f)
+        public IActionResult Post([FromHeader]string auth, Foglala f)
         {
-            if(Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if(auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 _context.Foglalas.Add(f);
                 if (_context.SaveChanges() > 0)
@@ -66,9 +66,9 @@ namespace VizsgaremekAPI.Controllers
         }
         
         [HttpDelete("{id}")]
-        public StatusCodeResult Delete([FromHeader] string Auth, int id)
+        public StatusCodeResult Delete([FromHeader] string auth, int id)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 Foglala aktf = _context.Foglalas.Find(id);
                 if (aktf is not null)

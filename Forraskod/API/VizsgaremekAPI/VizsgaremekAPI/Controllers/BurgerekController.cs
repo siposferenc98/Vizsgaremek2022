@@ -27,9 +27,9 @@ namespace VizsgaremekAPI.Controllers
 
         // PUT /<Burgerek>
         [HttpPost]
-        public StatusCodeResult Post([FromHeader]string Auth, Burger b)
+        public StatusCodeResult Post([FromHeader]string auth, Burger b)
         {
-            if(Auth == AktivTokenek.AdminToken)
+            if(auth == AktivTokenek.AdminToken)
             {
                 _context.Burgers.Add(b);
                 if (_context.SaveChanges() > 0)
@@ -42,9 +42,9 @@ namespace VizsgaremekAPI.Controllers
         }
         // PUT /<Burgerek>
         [HttpPut]
-        public IActionResult Put([FromHeader]string Auth, Burger b)
+        public IActionResult Put([FromHeader]string auth, Burger b)
         {
-           if(Auth == AktivTokenek.AdminToken)
+           if(auth == AktivTokenek.AdminToken)
             {
                 Burger aktb = _context.Burgers.Find(b.Bazon);
                 _context.Entry(aktb).CurrentValues.SetValues(b);

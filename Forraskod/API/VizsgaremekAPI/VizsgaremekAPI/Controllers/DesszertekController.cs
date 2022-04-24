@@ -27,9 +27,9 @@ namespace VizsgaremekAPI.Controllers
 
         // POST /<Desszertek>
         [HttpPost]
-        public StatusCodeResult Post([FromHeader]string Auth, Desszert d)
+        public StatusCodeResult Post([FromHeader]string auth, Desszert d)
         {
-            if(Auth == AktivTokenek.AdminToken)
+            if(auth == AktivTokenek.AdminToken)
             {
                 _context.Desszerts.Add(d);
                 if (_context.SaveChanges() > 0)
@@ -42,9 +42,9 @@ namespace VizsgaremekAPI.Controllers
         }
         // PUT /<Desszertek>
         [HttpPut]
-        public IActionResult Put([FromHeader]string Auth, Desszert d)
+        public IActionResult Put([FromHeader]string auth, Desszert d)
         {
-           if(Auth == AktivTokenek.AdminToken)
+           if(auth == AktivTokenek.AdminToken)
             {
                 Desszert aktd = _context.Desszerts.Find(d.Dazon);
                 _context.Entry(aktd).CurrentValues.SetValues(d);

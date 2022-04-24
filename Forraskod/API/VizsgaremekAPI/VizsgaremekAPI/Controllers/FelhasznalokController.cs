@@ -14,10 +14,10 @@ namespace VizsgaremekAPI.Controllers
 
         // GET: api/<FelhasznalokController>
         [HttpGet]
-        public IActionResult Get([FromHeader]string Auth)
+        public IActionResult Get([FromHeader]string auth)
         {
             
-            if (Auth == AktivTokenek.AdminToken)
+            if (auth == AktivTokenek.AdminToken)
                 return StatusCode(200, _context.Felhasznalos);
 
             return StatusCode(403);
@@ -32,7 +32,7 @@ namespace VizsgaremekAPI.Controllers
             if(f is null)
                 return StatusCode(404,"Hibás felhasználónév vagy jelszó!");
 
-            Response.Headers.Add("Auth", f.Jog switch {
+            Response.Headers.Add("auth", f.Jog switch {
                 < 4 => AktivTokenek.UserToken, 
                 4 => AktivTokenek.AdminToken,
                 _ => null });
@@ -59,9 +59,9 @@ namespace VizsgaremekAPI.Controllers
         }
         // PUT api/<FelhasznalokController>
         [HttpPut("Admin")]
-        public IActionResult PutAdmin([FromHeader] string Auth, Felhasznalo f)
+        public IActionResult PutAdmin([FromHeader] string auth, Felhasznalo f)
         {
-            if (Auth == AktivTokenek.AdminToken)
+            if (auth == AktivTokenek.AdminToken)
             {
                 Felhasznalo letezike = _context.Felhasznalos.FirstOrDefault(x => x.Email == f.Email);
                 if (letezike is null)

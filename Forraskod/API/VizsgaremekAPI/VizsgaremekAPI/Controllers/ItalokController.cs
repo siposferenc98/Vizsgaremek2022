@@ -26,9 +26,9 @@ namespace VizsgaremekAPI.Controllers
         }
         // POST /<Italok>
         [HttpPost]
-        public StatusCodeResult Post([FromHeader]string Auth, Ital i)
+        public StatusCodeResult Post([FromHeader]string auth, Ital i)
         {
-            if(Auth == AktivTokenek.AdminToken)
+            if(auth == AktivTokenek.AdminToken)
             {
                 _context.Itals.Add(i);
                 if (_context.SaveChanges() > 0)
@@ -41,9 +41,9 @@ namespace VizsgaremekAPI.Controllers
         }
         // PUT /<Italok>
         [HttpPut]
-        public IActionResult Put([FromHeader]string Auth, Ital i)
+        public IActionResult Put([FromHeader]string auth, Ital i)
         {
-           if(Auth == AktivTokenek.AdminToken)
+           if(auth == AktivTokenek.AdminToken)
             {
                 Ital akti = _context.Itals.Find(i.Iazon);
                 _context.Entry(akti).CurrentValues.SetValues(i);

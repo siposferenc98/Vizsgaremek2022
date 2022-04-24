@@ -28,9 +28,9 @@ namespace VizsgaremekAPI.Controllers
 
         // POST /<Koretek>
         [HttpPost]
-        public StatusCodeResult Post([FromHeader]string Auth, Koret k)
+        public StatusCodeResult Post([FromHeader]string auth, Koret k)
         {
-            if(Auth == AktivTokenek.AdminToken)
+            if(auth == AktivTokenek.AdminToken)
             {
                 _context.Korets.Add(k);
                 if (_context.SaveChanges() > 0)
@@ -43,9 +43,9 @@ namespace VizsgaremekAPI.Controllers
         }
         // PUT /<Koretek>
         [HttpPut]
-        public IActionResult Put([FromHeader]string Auth, Koret k)
+        public IActionResult Put([FromHeader]string auth, Koret k)
         {
-           if(Auth == AktivTokenek.AdminToken)
+           if(auth == AktivTokenek.AdminToken)
             {
                 Koret aktk = _context.Korets.Find(k.Kazon);
                 _context.Entry(aktk).CurrentValues.SetValues(k);

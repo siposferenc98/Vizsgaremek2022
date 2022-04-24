@@ -13,18 +13,18 @@ namespace VizsgaremekAPI.Controllers
 
         // GET: /<Tetelek>
         [HttpGet]
-        public IActionResult Get([FromHeader] string Auth)
+        public IActionResult Get([FromHeader] string auth)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
                 return StatusCode(200, _context.Tetels);
 
             return StatusCode(403);
         }
 
         [HttpGet("Pultos")]
-        public IActionResult GetPultos([FromHeader] string Auth)
+        public IActionResult GetPultos([FromHeader] string auth)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 List<Tetel> pultosTetelek = _context.Tetels.Where(x => x.Iazon > 1 && x.Italstatus < 2 && x.Etelstatus < 3).ToList();
                 pultosTetelek.ForEach(x =>
@@ -36,9 +36,9 @@ namespace VizsgaremekAPI.Controllers
             return StatusCode(403);
         }
         [HttpGet("Szakacs")]
-        public IActionResult GetSzakacs([FromHeader] string Auth)
+        public IActionResult GetSzakacs([FromHeader] string auth)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 List<Tetel> szakacsTetelek = _context.Tetels.Where(x => (x.Bazon > 1 || x.Dazon > 1 || x.Kazon > 1) && x.Italstatus < 3 && x.Etelstatus < 2).ToList();
                 szakacsTetelek.ForEach(x =>
@@ -54,9 +54,9 @@ namespace VizsgaremekAPI.Controllers
 
         // POST /<Tetelek>
         [HttpPost]
-        public StatusCodeResult Post([FromHeader] string Auth, Tetel t)
+        public StatusCodeResult Post([FromHeader] string auth, Tetel t)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 _context.Tetels.Add(t);
                 if (_context.SaveChanges() > 0)
@@ -69,9 +69,9 @@ namespace VizsgaremekAPI.Controllers
         }
         // PUT /<Tetelek>/Status
         [HttpPut("Status")]
-        public IActionResult PutStatus([FromHeader] string Auth, Tetel t, [FromQuery]bool szakacs = false)
+        public IActionResult PutStatus([FromHeader] string auth, Tetel t, [FromQuery]bool szakacs = false)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 Tetel aktt = _context.Tetels.Find(t.Tazon);
                 if (szakacs)
@@ -89,9 +89,9 @@ namespace VizsgaremekAPI.Controllers
         }
         // PUT /<Tetelek>
         [HttpPut]
-        public IActionResult Put([FromHeader] string Auth, Tetel t)
+        public IActionResult Put([FromHeader] string auth, Tetel t)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 Tetel aktt = _context.Tetels.Find(t.Tazon);
                 if (aktt is not null)
@@ -108,9 +108,9 @@ namespace VizsgaremekAPI.Controllers
         }
         // DELETE /<Tetelek>/{id}
         [HttpDelete("{id}")]
-        public IActionResult Delete([FromHeader] string Auth, int id)
+        public IActionResult Delete([FromHeader] string auth, int id)
         {
-            if (Auth == AktivTokenek.AdminToken || Auth == AktivTokenek.UserToken)
+            if (auth == AktivTokenek.AdminToken || auth == AktivTokenek.UserToken)
             {
                 Tetel t = _context.Tetels.Find(id);
                 _context.Tetels.Remove(t);
