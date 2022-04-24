@@ -8,7 +8,7 @@
     $decoded = json_decode($result[1]); // a visszakapott válasz json formátumúvá alakítjuk
     //var_dump($decoded);
     $koretek = []; //ebbe lesznek a Termek classú itemek
-    $sor = 2;
+    $sor = 1;
     while($sor < count($decoded))
     {
         $korets = $decoded[$sor];

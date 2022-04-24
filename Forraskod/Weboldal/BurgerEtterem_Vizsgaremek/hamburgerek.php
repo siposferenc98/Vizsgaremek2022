@@ -9,7 +9,7 @@
     //var_dump($decoded);
     $hamburgerek = []; //ebben lesznek a Termek classú itemek
     //$sor = 1;
-    $sor = 2;
+    $sor = 1;
     while($sor < count($decoded)) //ciklus a dekódolt eredmény végéig
     {
         $burger = $decoded[$sor];
