@@ -86,7 +86,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ymsDTeASjq9H0WlCaYJOZAUpTKs4jGZSrH6WaUIzSJo=</dsig:DigestValue>
+      <dsig:DigestValue>2ll642Yb/+29nidyCfSD+pB3keMJMjQjgC2jk0A9ddk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="VizsgaremekMVVM.exe" size="125952">
