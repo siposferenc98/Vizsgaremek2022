@@ -17,3 +17,10 @@ localhost/BurgerEtterem_Vizsgaremek/index.php
 Az asztali alkalmazás forráskódja a Forráskód/AsztaliAlkalmazas mappában található.
 
 A telepítő a Telepito/Asztali-ban található, a setup.exe-re kattintva elindul a telepítés, utána egyből elindul az applikáció, és a start menüben is megtalálható.
+
+Bejelentkezni az admin felületre : 
+
+Felhasználónév: admin
+Jelszó: admin
+
+-al lehet. Ezután lehetséges több admin felhasználó regisztrálása a felhasználók panelről.
