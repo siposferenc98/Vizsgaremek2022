@@ -20,7 +20,7 @@ A telepítő a Telepito/Asztali-ban található, a setup.exe-re kattintva elindu
 
 Bejelentkezni az admin felületre : 
 
-Felhasználónév: admin
+Felhasználónév: admin |
 Jelszó: admin
 
 -al lehet. Ezután lehetséges több admin felhasználó regisztrálása a felhasználók panelről.
